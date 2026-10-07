@@ -1,20 +1,39 @@
 {
-  "name": "@loomdesk/goat-plugin",
+  "name": "loomdesk-goat",
   "version": "0.1.0",
-  "description": "GOAT SDK plugin for LoomDesk: liquidity ladders, limit orders and pools on Robinhood Chain (4663), planned by loomdesk.trade, checked and signed by the agent's own EVM wallet.",
+  "description": "LoomDesk for GOAT agents: the market on Robinhood Chain, and real liquidity ladders planned by loomdesk.trade, checked, and sent from the agent's own wallet.",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "sideEffects": false,
-  "keywords": ["goat", "goat-sdk", "goat-plugin", "loomdesk", "robinhood-chain", "uniswap-v4", "liquidity", "defi", "ai-agent"],
-  "homepage": "https://loomdesk.trade/llms.txt",
-  "repository": { "type": "git", "url": "git+https://github.com/loomdesk/loomdesk-agents.git", "directory": "packages/goat" },
+  "keywords": [
+    "goat",
+    "goat-sdk",
+    "goat-plugin",
+    "loomdesk",
+    "robinhood-chain",
+    "uniswap-v4",
+    "liquidity",
+    "defi",
+    "ai-agent"
+  ],
+  "homepage": "https://loomdesk.trade/agents/start",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loomdesk-hq/agents.git",
+    "directory": "packages/goat"
+  },
   "scripts": {
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.check.json",
     "build": "rm -rf dist && tsc -p tsconfig.json",
     "test": "npm run build && node --test test/*.test.mjs",
-    "dry-run": "npm run build && node scripts/dry-run.mjs"
+    "dry-run": "npm run build && node scripts/dry-run.mjs",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "@goat-sdk/core": ">=0.4.6 <0.6.0",
@@ -33,5 +52,7 @@
     "viem": "2.23.4",
     "zod": "3.23.8"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  }
 }
