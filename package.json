@@ -1,0 +1,15 @@
+{
+  "name": "loomdesk-agents",
+  "private": true,
+  "description": "LoomDesk plugins for agent frameworks: Coinbase AgentKit, ElizaOS and GOAT.",
+  "license": "MIT",
+  "scripts": {
+    "sync": "node scripts/sync-core.mjs",
+    "check": "node scripts/sync-core.mjs --check",
+    "install:all": "for p in agentkit goat eliza; do (cd packages/$p && npm install) || exit 1; done",
+    "typecheck": "for p in agentkit goat eliza; do (cd packages/$p && npm run typecheck) || exit 1; done",
+    "build": "for p in agentkit goat eliza; do (cd packages/$p && npm run build) || exit 1; done",
+    "test": "node scripts/sync-core.mjs --check && for p in agentkit goat eliza; do (cd packages/$p && npm test) || exit 1; done",
+    "dry-run": "for p in agentkit goat eliza; do (cd packages/$p && npm run dry-run) || exit 1; done"
+  }
+}
